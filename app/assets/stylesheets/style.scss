@@ -1,0 +1,328 @@
+@import "compass";
+
+/*
+ * "ほのか明朝" licensed under the IPA Font License Agreement v1.0
+ * http://fontfree.me/966（配布元のURL）
+ * http://ipafont.ipa.go.jp/（IPAフォントのURL）
+ * http://ipafont.ipa.go.jp/ipa_font_license_v1.html（IPAフォントライセンスv1.0のURL）
+ */
+@font-face {
+    font-family: 'ほのか明朝';
+    src: url('font_1_honokamin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Unica+One);
+
+$accent: #57C3E9;
+$black: #292929;
+$dark: #000;
+$darkGray: #999999;
+$gray: #D8D8D8;
+$lightGray: #f5f5f3;
+$white: white;
+
+
+
+
+@mixin boxBase($margin: 30px auto, $padding: 10px) {
+  margin: $margin;
+  padding: $padding;
+}
+@mixin basePadding($padding: 10px) {
+  padding: $padding;
+}
+@mixin baseMargin($margin: 10px auto) {
+  margin: $margin;
+}
+//application:
+body,html {
+  height: 100%;
+  background-color: #f3ffd8;//$lightGray;
+}
+//application:
+body {
+  padding-top: 40px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:  left;
+}
+
+h1,h2,h3,h4,h5,h6,body {
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+  color: #000;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $dark;
+  &:hover {
+    color: $accent;
+  }
+}
+//詳しくはこちら参照：https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+.transition {
+  @include transition-property(all);//トランジションを適用する CSS プロパティの名前を指定
+  @include transition-duration(0.2s);//トランジションの実行にかかる所要時間を指定
+  @include transition-timing-function(linear);//プロパティの中間の値を計算する方法を定義
+}
+
+.btn {
+    @include basePadding(5px 15px);
+    font-size: 12px;
+    border: 2px solid $accent;
+    color: #000080;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+  &:hover {
+    border-color: lighten($accent, 15%);
+    color: #800080;
+  }
+}
+
+//font-family:フォントの種類を表す
+//sans-serif …… ゴシック系のフォント
+//serif …… 明朝系のフォント
+//cursive …… 筆記体・草書体のフォント
+//fantasy …… 装飾的なフォント
+
+h1{
+   line-height: 1.77;
+   font-size: 30px;
+   color: #1a1a1a;
+   font-family: fantasy;//書体の指定:装飾的なフォント
+   margin: 0;
+   padding: 0;
+}
+
+h3,{
+   line-height: 1.77;
+   font-size: 15px;
+   color: #1a1a1a;
+   font-family: fantasy;//書体の指定:装飾的なフォント
+   margin: 0;
+   padding: 0;  
+}
+
+h6, {
+   line-height: 1.77;
+   font-size: 6px;
+   color: #8a8a8a;
+   font-family: sans-serif;//書体の指定:ゴシック系のフォント
+   width: 450px;
+   margin: auto;
+   padding: 0; 
+}
+
+header.header {
+  border-bottom: 1px solid $black;
+  background-color: #d7ffee;
+  position: fixed;
+  top: 0;
+  left:  0;
+  right: 0;
+  z-index: 5;// headerとcontentsが重なった時は、headerが前に表示されるようにする
+  
+  div.header__bar.row {
+    position: relative;
+    top: 5px;
+    left: 150px;
+    
+    h1.grid-6 {
+      font-size: 30px;
+      line-height: 41px;
+      color: #800080;
+      float: left;
+      a {
+        display: block;//<a>要素や<img>要素の前後で改行される
+      }
+    }
+    div.grid-6 {
+      float: right;
+      text-align: right;
+    }
+  }
+}
+
+.form {
+  background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
+  background-size: cover;
+  .contents {
+    position: absolute;
+    left:   0;
+    top:    30px;
+    bottom: 0;
+    right:  0;
+    margin: auto;
+  }
+  footer {
+    position: absolute;
+    bottom: 5px;
+    left:  0;
+    right: 0;
+  }
+}
+//showアクションでの設定
+div.contents_image {
+     left:    0px;
+     top:     0px;
+     bottom:   0px;
+     right:    0px;
+     height: 550px;
+     width:  450px;
+     margin:  auto;
+//show:タイトル
+    div.contents_intro1{
+       line-height: 1.00;
+       font-size: 30px;
+       color: #000000;
+       font-family: fantasy;//書体の指定:装飾的なフォント
+       height: 150px;       
+       width: 450px;
+       margin: auto;
+       padding: 0;
+      }
+
+//show:イメージ画像
+  div.content_post {
+    position: relative;
+    height: 300px;
+    width: 450px;
+    color: #fff;
+    background-size: contain;
+    background-position: center center;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba($black,0.2);
+  }
+//show:ブログ文章  
+  div.content_text {
+    position: relative;
+    height: 50px;
+    width: 450px;
+    background-color: $lightGray;
+  }  
+//show:ブログ編集、削除ボタン  
+  div.content_more {
+    .more_list {
+     top:     70px;
+     bottom:   0px;
+     right:    0px;
+     left:     0px;
+     height: 100px;
+     width:  200px;
+     margin:  auto;
+     text-align: center;
+    }
+  }
+}
+//indexアクションでの設定
+div.contents_image2 {
+     left:    0px;
+     top:     0px;
+     bottom:  10px;
+     right:   0px;
+     height: 900px;
+     width:  550px;
+     margin: auto;
+    
+    a:hover {
+        color: #66CCFF;
+    }
+//index:タイトル
+    div.contents_intro2{
+       line-height: 2.00;
+       font-size: 30px;
+       color: #000000;
+       font-family: fantasy;//書体の指定:装飾的なフォント
+       width: 450px;
+       margin: auto;
+       padding: 0;
+      }
+    
+    div.contents_date2{
+       line-height: 2.00;
+       font-size: 30px;
+       color: #000000;
+       font-family: fantasy;//書体の指定:装飾的なフォント
+       width: 200px;
+       margin: auto;
+       padding: 0;
+       float: left;
+    }
+//index:イメージ画像    
+    div.content_post2 {
+        position: relative;
+        height: 90px;
+        width: 100px;
+        color: #fff;
+        background-size: contain;
+        background-position: center center;
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba($black,0.2);
+        float: left;
+    }
+//index:ブログ編集、削除ボタン
+    div.content_more2 {
+    .more_list2 {
+     top:      20px;
+     bottom:   0px;
+     right:    0px;
+     left:     0px;
+     height:  40px;
+     width:  200px;
+     margin:  auto;
+     text-align: right;
+     float: right;
+    }
+   }
+}
+//editアクションでの設定  
+div.contents_row {
+  .success {
+    top:     70px;
+    bottom:   0px;
+    right:    0px;
+    left:     0px;
+    height: 400px;
+    width:  200px;
+    margin:  auto;
+  }
+}  
+//editアクションでの設定 
+form {
+  input,textarea {
+    width: 100%;
+    @include boxBase(5px 0 15px,10px);
+    border: 1px solid $gray;
+    border-radius: 5px;
+    font-family: "游ゴシック", "YuGothic";
+  }
+  input[type="submit"] {
+    @extend .transition;
+    background-color: $accent;
+    border-radius: 20px;
+    color: #fff;
+    border: 0;
+    font-size: 18px;
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
+  }
+}
+ 
+//application "Copyright あっきーblog 2019."の設定"
+footer {
+    @include boxBase;
+  color: $gray;
+  p {
+     font-size: 10px;
+     text-align: center;
+  }
+}

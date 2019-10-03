@@ -1,0 +1,26 @@
+<div class="contents_image">
+    <div class="contents_intro1">
+      <h1><%= simple_format(@blog.intro) %></h1>
+    <h6>公開日:<%=  @time_date %><br> 
+        最終更新日:<%=  @modified_date %></h6>
+      <div class="content_post" style="background-image: url(<%= @blog.image %>);">
+      </div>
+
+    <div class="content_text">
+        <h3><%= simple_format(@blog.text) %></h3>
+    </div>
+    <div class="content_more">
+      <ul class="more_list">
+          <li>
+            <%= link_to 'ブログ一覧へ戻る', "/blogs", method: :get,class: 'btn btn-default' %><br><br>
+          
+        <% if user_signed_in? && current_user.id == @blog.user_id %>
+          
+            <%= link_to '編集', "/blogs/#{@blog.id}/edit", method: :get,class: 'btn btn-default' %>
+            <%= link_to '削除', "/blogs/#{@blog.id}", method: :delete,class: 'btn btn-default' %>
+          </li>
+        <% end %>
+      </ul>  
+    </div>
+  </div> 
+</div>
